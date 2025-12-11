@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Platinum Marketing</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .faq-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #00D9FF 0%, #A855F7 50%, #EC4899 100%);
+            border-radius: 16px;
+            color: white;
+        }
+
+        .faq-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .faq-header p {
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .faq-item {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            border: 2px solid rgba(0, 217, 255, 0.2);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(0, 217, 255, 0.5);
+            box-shadow: 0 8px 20px rgba(0, 217, 255, 0.3);
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #00D9FF;
+            font-weight: 600;
+            font-size: 1.1em;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background: rgba(0, 217, 255, 0.05);
+        }
+
+        .faq-icon {
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+            color: #A855F7;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: white;
+            padding: 0 25px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 25px 20px;
+        }
+
+        .faq-answer p {
+            line-height: 1.8;
+            font-size: 1em;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #00D9FF, #A855F7);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 217, 255, 0.4);
+        }
+
+        .category {
+            color: #A855F7;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 3px solid #A855F7;
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+    
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><button id="theme-toggle" onclick="toggleTheme()">🌙 Dark</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="faq-container">
+            <div class="faq-header">
+                <h1>Frequently Asked Questions</h1>
+                <p>Find answers to common questions about our services</p>
+            </div>
+
+            <a href="index.html" class="back-link">← Back to Home</a>
+
+            <div class="category">General Questions</div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What services does Platinum Marketing offer?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer a comprehensive suite of digital marketing services including Lead Capture, Support Ticket Management, Appointment Setting, Website Design & SEO Hosting, Email Marketing Campaigns, and AI Phone Callers. Each service is designed to help your business grow and streamline operations.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How quickly can I get started?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Most clients can get started within 24-48 hours after our initial consultation. We'll schedule a call to understand your needs, create a customized plan, and begin implementation right away.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you offer customized solutions?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! We understand that every business is unique. We tailor our services to meet your specific goals, industry requirements, and budget. Our team works closely with you to create solutions that fit perfectly.</p>
+                </div>
+            </div>
+
+            <div class="category">Pricing & Plans</div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What are your pricing options?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer flexible pricing based on your needs and the services you choose. Contact us for a free consultation and custom quote. We have packages suitable for startups, small businesses, and large enterprises.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is there a contract commitment?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer both month-to-month and annual contracts. Annual contracts come with significant discounts and additional perks. There's no long-term commitment required to get started.</p>
+                </div>
+            </div>
+
+            <div class="category">Technical Questions</div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How does the AI Phone Caller feature work?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Our AI Phone Callers use advanced natural language processing to handle customer calls 24/7. They can answer questions, qualify leads, schedule appointments, and route complex queries to your team. The AI learns from each interaction to continuously improve.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Will my website be mobile-friendly?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! All websites we design are fully responsive and optimized for mobile devices, tablets, and desktops. Mobile-first design is a core part of our development process to ensure the best user experience across all devices.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I integrate your services with my existing tools?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We integrate with most popular CRM systems, email platforms, calendar apps, and business tools. Our team will work with you to ensure seamless integration with your existing tech stack.</p>
+                </div>
+            </div>
+
+            <div class="category">Support & Maintenance</div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What kind of support do you provide?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer 24/7 customer support via email, phone, and live chat. Our dedicated support team is always ready to help with technical issues, answer questions, and provide guidance on best practices.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you provide training?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We provide comprehensive training for you and your team on all our services. This includes video tutorials, documentation, and live training sessions to ensure you get the most out of our solutions.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How do you measure success?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We provide detailed analytics and reporting dashboards that track key metrics like lead generation, conversion rates, website traffic, email open rates, and ROI. You'll have full visibility into your campaign performance at all times.</p>
+                </div>
+            </div>
+
+            <a href="index.html#contact" class="back-link" style="margin-top: 30px;">Get in Touch →</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Platinum Marketing. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // FAQ Accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

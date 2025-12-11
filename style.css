@@ -1,0 +1,507 @@
+/* ===== CSS Variables for Theme ===== */
+:root {
+    --primary-gold: #00D9FF;
+    --primary-dark: #0F172A;
+    --accent-purple: #A855F7;
+    --accent-pink: #EC4899;
+    --accent-orange: #F97316;
+    --accent-green: #10B981;
+    --bg-light: #FFFFFF;
+    --bg-section: #F8FAFC;
+    --text-dark: #0F172A;
+    --text-light: #fff;
+    --text-muted: #475569;
+    --border-color: rgba(0, 217, 255, 0.3);
+    --shadow: 0 4px 12px rgba(0,0,0,0.1);
+    --shadow-hover: 0 8px 24px rgba(0, 217, 255, 0.5);
+}
+
+[data-theme="dark"] {
+    --bg-light: #0F172A;
+    --bg-section: #1E293B;
+    --text-dark: #F1F5F9;
+    --text-light: #F1F5F9;
+    --text-muted: #94A3B8;
+    --border-color: rgba(0, 217, 255, 0.3);
+    --shadow: 0 2px 8px rgba(0,0,0,0.4);
+    --shadow-hover: 0 8px 20px rgba(0, 217, 255, 0.5);
+}
+
+/* ===== Global Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+main {
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===== Scroll Progress Bar ===== */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-gold), var(--accent-purple), var(--accent-pink));
+    width: 0%;
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
+/* ===== Sticky Header ===== */
+header {
+    position: sticky;
+    top: 0;
+    background: var(--primary-dark);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+header.scrolled {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+nav ul li a {
+    color: var(--primary-gold);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    color: var(--accent-purple);
+    transform: translateY(-2px);
+}
+
+/* ===== Dark Mode Toggle ===== */
+#theme-toggle {
+    background: var(--primary-gold);
+    color: var(--primary-dark);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background: var(--accent-purple);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ===== Floating Action Buttons ===== */
+.floating-buttons {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 999;
+}
+
+.floating-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8em;
+    cursor: pointer;
+    box-shadow: var(--shadow-hover);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-btn:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.whatsapp-btn {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+}
+
+.call-btn {
+    background: linear-gradient(135deg, var(--primary-gold), var(--accent-purple));
+    color: white;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ===== Scroll Animations ===== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Service Cards Enhanced ===== */
+.service-card {
+    transition: all 0.4s ease !important;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-10px) scale(1.03) !important;
+    box-shadow: var(--shadow-hover) !important;
+}
+
+.service-card span {
+    display: inline-block;
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover span {
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* ===== Statistics Section ===== */
+#statistics {
+    background: var(--primary-dark);
+    color: var(--text-light);
+    padding: 40px 20px;
+    border-radius: 16px;
+    margin: 20px 0;
+    text-align: center;
+    border: 2px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+.stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 3.5em;
+    font-weight: bold;
+    color: var(--primary-gold);
+    display: block;
+}
+
+.stat-label {
+    font-size: 1.2em;
+    color: var(--text-light);
+    margin-top: 10px;
+}
+
+/* ===== Testimonials Carousel ===== */
+#testimonials {
+    padding: 40px 20px 30px;
+    text-align: center;
+}
+
+.testimonial-carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.testimonial-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.testimonial-slide {
+    min-width: 100%;
+    padding: 30px;
+    background: var(--primary-dark);
+    color: var(--text-light);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 2px solid var(--border-color);
+}
+
+.testimonial-text {
+    font-size: 1.2em;
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.testimonial-author {
+    color: var(--primary-gold);
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.testimonial-role {
+    color: var(--text-muted);
+    font-size: 0.95em;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--primary-gold);
+    width: 30px;
+    border-radius: 6px;
+}
+
+/* ===== Client Logos ===== */
+#clients {
+    padding: 40px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%);
+    border-radius: 16px;
+    margin: 20px 0;
+    border: 2px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+.logos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.client-logo {
+    width: 140px;
+    height: 80px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    font-weight: bold;
+    color: var(--primary-dark);
+    font-size: 1.1em;
+    border: 2px solid var(--border-color);
+}
+
+.client-logo:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ===== Newsletter Section ===== */
+#newsletter {
+    background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-purple) 50%, var(--accent-pink) 100%);
+    padding: 35px 20px;
+    border-radius: 16px;
+    text-align: center;
+    margin: 20px 0;
+    color: white;
+}
+
+#newsletter h2 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+#newsletter p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.newsletter-form {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    outline: none;
+}
+
+.newsletter-form button {
+    padding: 15px 30px;
+    background: white;
+    color: var(--accent-purple);
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background: var(--primary-dark);
+    color: var(--primary-gold);
+    transform: scale(1.05);
+}
+
+/* ===== Footer ===== */
+footer {
+    background: var(--primary-dark);
+    color: var(--primary-gold);
+    text-align: center;
+    padding: 25px;
+    margin-top: 20px;
+}
+
+/* ===== Form Styles ===== */
+input, textarea, button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--primary-gold);
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-purple);
+    background: rgba(0, 217, 255, 0.1);
+    transform: scale(1.02);
+}
+
+button[type="submit"] {
+    background: var(--primary-gold);
+    color: var(--primary-dark);
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+button[type="submit"]:hover {
+    background: var(--accent-purple);
+    transform: scale(1.05);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    nav ul {
+        gap: 15px;
+    }
+    
+    nav ul li a {
+        font-size: 0.95em;
+    }
+    
+    .stats-container {
+        gap: 30px;
+    }
+    
+    .stat-number {
+        font-size: 2.5em;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .floating-buttons {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .floating-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5em;
+    }
+    
+    .logos-container {
+        gap: 20px;
+    }
+    
+    .client-logo {
+        width: 120px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    #hero h1 {
+        font-size: 2em !important;
+    }
+    
+    #hero p {
+        font-size: 1.2em !important;
+    }
+    
+    section h2 {
+        font-size: 1.5em !important;
+    }
+}

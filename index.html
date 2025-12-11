@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+    
     <header>
         <nav>
             <ul>
@@ -14,16 +17,17 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="faq.html">FAQ</a></li>
+                <li><button id="theme-toggle" onclick="toggleTheme()">🌙 Dark</button></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section id="admin-leads" style="background: #222; color: #FFD700; padding: 30px; border-radius: 12px; max-width: 800px; margin: 40px auto; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
-            <h2 style="font-size: 2em; color: #FFD700; margin-bottom: 20px;">Leads Admin</h2>
-            <button id="export-leads" style="margin-bottom: 20px;">Export Leads (CSV)</button>
-            <table id="leads-table" style="width:100%; background:#222; color:#FFD700; border-collapse:collapse;">
+        <section id="admin-leads" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: #00D9FF; padding: 30px; border-radius: 12px; max-width: 800px; margin: 40px auto; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 2px solid rgba(0, 217, 255, 0.3);">
+            <h2 style="font-size: 2em; color: #00D9FF; margin-bottom: 20px;">Leads Admin</h2>
+            <button id="export-leads" style="margin-bottom: 20px; background: linear-gradient(135deg, #00D9FF, #A855F7); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold;">Export Leads (CSV)</button>
+            <table id="leads-table" style="width:100%; background:#0F172A; color:#00D9FF; border-collapse:collapse;">
                 <thead>
-                    <tr style="background:#FFD700; color:#222;">
+                    <tr style="background: linear-gradient(135deg, #00D9FF, #A855F7); color: white;">
                         <th style="padding:8px;">Name</th>
                         <th style="padding:8px;">Email</th>
                         <th style="padding:8px;">Message</th>
@@ -33,75 +37,161 @@
                 <tbody></tbody>
             </table>
         </section>
-        <section id="hero" style="background: linear-gradient(120deg, #FFD700 0%, #222 100%); color: #222; padding: 60px 20px; text-align: center; border-radius: 16px; margin-bottom: 40px;">
-            <h1 style="font-size: 3em; font-family: 'Segoe UI', Arial, sans-serif; font-weight: bold; margin-bottom: 20px;">Platinum Marketing</h1>
-            <p style="font-size: 1.5em; font-family: 'Segoe UI', Arial, sans-serif; margin-bottom: 30px;">Grow your business with premium digital solutions</p>
-            <a href="#contact" style="background: #222; color: #FFD700; padding: 15px 40px; border-radius: 8px; font-size: 1.2em; text-decoration: none; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: background 0.3s;">Get Started</a>
+        <section id="home"></section>
+        <section id="hero" style="background: linear-gradient(135deg, #00D9FF 0%, #A855F7 50%, #EC4899 100%); color: white; padding: 50px 20px; text-align: center; border-radius: 16px; margin-bottom: 20px; box-shadow: 0 8px 24px rgba(0, 217, 255, 0.3);">
+            <h1 style="font-size: 3em; font-family: 'Segoe UI', Arial, sans-serif; font-weight: bold; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">Platinum Marketing</h1>
+            <p style="font-size: 1.5em; font-family: 'Segoe UI', Arial, sans-serif; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">Grow your business with premium digital solutions</p>
+            <a href="#contact" style="background: white; color: #A855F7; padding: 15px 40px; border-radius: 8px; font-size: 1.2em; text-decoration: none; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: background 0.3s;">Get Started</a>
         </section>
-        <div style="text-align:right; margin: 20px 0;">
-            <button onclick="showAdminLeads()" style="background:#FFD700; color:#222; padding:8px 20px; border-radius:6px; font-weight:bold; cursor:pointer;">Admin Login</button>
+        <div style="text-align:right; margin: 10px 0 15px;">
+            <button onclick="showAdminLeads()" style="background: linear-gradient(135deg, #00D9FF, #A855F7); color: white; padding: 8px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; border: none;">Admin Login</button>
         </div>
+        
+        <!-- Statistics Section -->
+        <section id="statistics" class="fade-in">
+            <h2 style="font-size: 2.2em; color: #00D9FF; margin-bottom: 15px;">Our Track Record</h2>
+            <p style="font-size: 1.1em; color: #fff; margin-bottom: 15px;">Numbers that speak for themselves</p>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="500">0</span>
+                    <span class="stat-label">Happy Clients</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="1250">0</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="98">0</span>
+                    <span class="stat-label">% Satisfaction Rate</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="24">0</span>
+                    <span class="stat-label">7 Support</span>
+                </div>
+            </div>
+        </section>
+        
         <section id="services">
-            <h2 style="font-size: 2em; color: #FFD700; margin-bottom: 20px;">Our Services</h2>
-            <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
-                <div class="service-card" style="background: #222; color: #FFD700; padding: 30px; border-radius: 12px; width: 260px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); text-align: center;">
-                    <span style="font-size: 2em;">&#128221;</span>
+            <h2 style="font-size: 2em; color: #A855F7; margin-bottom: 15px;">Our Services</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                <div class="service-card" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: #00D9FF; padding: 30px; border-radius: 12px; width: 260px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); text-align: center; border: 2px solid rgba(0, 217, 255, 0.2);">
+                    <span style="font-size: 2em;">📝</span>
                     <h3>Lead Capture</h3>
                     <p style="font-size: 0.95em; color: #fff; margin-top: 10px;">Automate lead collection and manage prospects efficiently with easy-to-use tools.</p>
                 </div>
-                <div class="service-card" style="background: #222; color: #FFD700; padding: 30px; border-radius: 12px; width: 260px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); text-align: center;">
+                <div class="service-card" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: #00D9FF; padding: 30px; border-radius: 12px; width: 260px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); text-align: center; border: 2px solid rgba(0, 217, 255, 0.2);">
                     <span style="font-size: 2em;">&#128172;</span>
                     <h3>Support Ticket Management</h3>
                     <p style="font-size: 0.95em; color: #fff; margin-top: 10px;">Streamline customer support with an organized ticketing system for fast issue resolution and improved satisfaction.</p>
                 </div>
-                <div class="service-card" style="background: #222; color: #FFD700; padding: 30px; border-radius: 12px; width: 260px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); text-align: center;">
+                <div class="service-card" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: #00D9FF; padding: 30px; border-radius: 12px; width: 260px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); text-align: center; border: 2px solid rgba(0, 217, 255, 0.2);">
                     <span style="font-size: 2em;">&#128197;</span>
                     <h3>Appointment Setting</h3>
                     <p style="font-size: 0.95em; color: #fff; margin-top: 10px;">Let clients book meetings online with automated reminders and calendar integration for hassle-free scheduling.</p>
                 </div>
-                <div class="service-card" style="background: #222; color: #FFD700; padding: 30px; border-radius: 12px; width: 260px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); text-align: center;">
+                <div class="service-card" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: #00D9FF; padding: 30px; border-radius: 12px; width: 260px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); text-align: center; border: 2px solid rgba(0, 217, 255, 0.2);">
                     <span style="font-size: 2em;">&#128187;</span>
                     <h3>Website Design & SEO Hosting</h3>
                     <p style="font-size: 0.95em; color: #fff; margin-top: 10px;">Get a stunning, mobile-friendly website with fast hosting and built-in SEO to boost your online visibility.</p>
                 </div>
-                <div class="service-card" style="background: #222; color: #FFD700; padding: 30px; border-radius: 12px; width: 260px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); text-align: center;">
+                <div class="service-card" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: #00D9FF; padding: 30px; border-radius: 12px; width: 260px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); text-align: center; border: 2px solid rgba(0, 217, 255, 0.2);">
                     <span style="font-size: 2em;">&#128231;</span>
                     <h3>Email Marketing Campaigns</h3>
                     <p style="font-size: 0.95em; color: #fff; margin-top: 10px;">Reach your audience with targeted, automated email campaigns designed to convert leads and retain customers.</p>
                 </div>
-                <div class="service-card" style="background: #222; color: #FFD700; padding: 30px; border-radius: 12px; width: 260px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); text-align: center;">
+                <div class="service-card" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: #00D9FF; padding: 30px; border-radius: 12px; width: 260px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); text-align: center; border: 2px solid rgba(0, 217, 255, 0.2);">
                     <span style="font-size: 2em;">&#128222;</span>
                     <h3>AI Phone Callers</h3>
                     <p style="font-size: 0.95em; color: #fff; margin-top: 10px;">Leverage AI-powered phone agents to handle calls, qualify leads, and provide instant responses 24/7.</p>
                 </div>
             </div>
         </section>
-        <section id="contact" style="margin-top: 50px;">
-            <h2 style="font-size: 2em; color: #FFD700; margin-bottom: 20px;">Contact Us</h2>
-            <div style="background: #222; color: #FFD700; padding: 24px; border-radius: 12px; max-width: 500px; margin: 0 auto 30px auto; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+        
+        <!-- Testimonials Carousel -->
+        <section id="testimonials" class="fade-in">
+            <h2 style="font-size: 2.2em; color: #A855F7; margin-bottom: 15px;">What Our Clients Say</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-track">
+                    <div class="testimonial-slide">
+                        <p class="testimonial-text">"Platinum Marketing transformed our online presence. Our leads increased by 300% in just 3 months!"</p>
+                        <p class="testimonial-author">Sarah Johnson</p>
+                        <p class="testimonial-role">CEO, TechStart Inc.</p>
+                    </div>
+                    <div class="testimonial-slide">
+                        <p class="testimonial-text">"The AI phone caller feature is a game-changer. We never miss a potential customer anymore."</p>
+                        <p class="testimonial-author">Michael Chen</p>
+                        <p class="testimonial-role">Founder, GrowthHub</p>
+                    </div>
+                    <div class="testimonial-slide">
+                        <p class="testimonial-text">"Professional, responsive, and results-driven. Best investment we've made for our business."</p>
+                        <p class="testimonial-author">Emily Rodriguez</p>
+                        <p class="testimonial-role">Marketing Director, InnovateCo</p>
+                    </div>
+                </div>
+                <div class="carousel-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Client Logos -->
+        <section id="clients" class="fade-in">
+            <h2 style="font-size: 2.2em; color: #00D9FF; margin-bottom: 15px;">Trusted By Industry Leaders</h2>
+            <div class="logos-container">
+                <div class="client-logo">TechCorp</div>
+                <div class="client-logo">InnovateLabs</div>
+                <div class="client-logo">GrowthPro</div>
+                <div class="client-logo">DataDrive</div>
+                <div class="client-logo">CloudSync</div>
+                <div class="client-logo">NextGen</div>
+            </div>
+        </section>
+        
+        <!-- Newsletter Section -->
+        <section id="newsletter" class="fade-in">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter for marketing tips and exclusive offers</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+        
+        <section id="contact" style="margin-top: 20px;">
+            <h2 style="font-size: 2em; color: #A855F7; margin-bottom: 15px;">Contact Us</h2>
+            <div style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: #00D9FF; padding: 24px; border-radius: 12px; max-width: 500px; margin: 0 auto 30px auto; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 2px solid rgba(0, 217, 255, 0.2);">
                 <p style="margin: 10px 0; color: #fff;"><strong>Address:</strong> 123 Marketing Ave, Tech City</p>
-                <p style="margin: 10px 0; color: #fff;"><strong>Phone:</strong> <a href="tel:+15551234567" style="color: #FFD700; text-decoration: underline;">(555) 123-4567</a></p>
-                <p style="margin: 10px 0; color: #fff;"><strong>Email:</strong> <a href="mailto:hello@platinummarketing.io" style="color: #FFD700; text-decoration: underline;">hello@platinummarketing.io</a></p>
+                <p style="margin: 10px 0; color: #fff;"><strong>Phone:</strong> <a href="tel:+15551234567" style="color: #00D9FF; text-decoration: underline;">(555) 123-4567</a></p>
+                <p style="margin: 10px 0; color: #fff;"><strong>Email:</strong> <a href="mailto:hello@platinummarketing.io" style="color: #00D9FF; text-decoration: underline;">hello@platinummarketing.io</a></p>
             </div>
             <!-- Simple Contact Form Start -->
-            <div style="background: #222; padding: 30px; border-radius: 12px; max-width: 500px; margin: auto; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
-                <h3 style="color: #FFD700; margin-bottom: 15px;">Contact Form</h3>
+            <div style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); padding: 30px; border-radius: 12px; max-width: 500px; margin: auto; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border: 2px solid rgba(0, 217, 255, 0.2);">
+                <h3 style="color: #00D9FF; margin-bottom: 15px;">Contact Form</h3>
                 <form>
                     <input type="text" id="lead-name" placeholder="Your Name" required style="margin-bottom: 10px;">
                     <input type="email" id="lead-email" placeholder="Your Email" required style="margin-bottom: 10px;">
                     <textarea id="lead-message" placeholder="Your Message" required style="margin-bottom: 10px;"></textarea>
                     <button type="submit">Send</button>
-                    <div id="lead-confirmation" style="display:none; color:#FFD700; margin-top:15px; font-weight:bold;">Thank you! Your message has been received.</div>
+                    <div id="lead-confirmation" style="display:none; color:#00D9FF; margin-top:15px; font-weight:bold;">Thank you! Your message has been received.</div>
                 </form>
             </div>
             <!-- Simple Contact Form End -->
         </section>
     </main>
+    
+    <!-- Floating Action Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/15551234567" class="floating-btn whatsapp-btn" target="_blank" title="Chat on WhatsApp">📱</a>
+        <a href="tel:+15551234567" class="floating-btn call-btn" title="Call Us">📞</a>
+    </div>
+    
     <footer>
         <p>&copy; 2025 Platinum Marketing. All rights reserved.</p>
     </footer>
-        <script src="script.js"></script>
-        <script>
+    <script src="script.js"></script>
+    <script>
             // Hide admin section by default and show on admin login
             document.addEventListener('DOMContentLoaded', function() {
                 var adminSection = document.getElementById('admin-leads');
